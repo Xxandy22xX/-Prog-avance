@@ -1,0 +1,162 @@
+<meta chaset = "utf 8">
+<canvas width = "750" height = "50"></canvas>
+
+<title>Super-dado</title>
+<h1>(っ◔◡◔) 😲☞  𝓢ｉмｕˡᵃ𝐃ｏ𝓇 ３０ʘ  🐣🐲 (っ◔◡◔)っ</h1>
+<button>DADITO</button>
+
+<script>
+	var screen = document.querySelector("canvas");
+	var brush = screen.getContext("2d");
+
+	function square(x,y,color) {
+
+		brush.fillStyle = color;
+		brush.fillRect(x,y,50,50);
+		brush.strokeStyle = "white";
+		brush.strokeRect(x,y,50,50);		
+	}	
+	function circle(xx,yy,radio) {
+        //coloque doble x & doble y para poder hacer la funcion 
+		brush.fillStyle = "white";
+        brush.beginPath();
+        brush.arc(xx,yy,radio,0,2*3.14);
+        brush.fill();
+	} 
+	/*function dides_1(x) {
+		
+		square(x,0,"black");
+
+		//middle
+		circle(25,25,5,);			    	
+	}
+    function dides_2(x) {
+		
+		square(x,0,"black");		
+
+		//up
+		circle(75,15,5,);		
+		//down
+		circle(75,35,5,);
+	}   
+	function dides_3(x) {
+		
+		square(x,0,"black");		
+
+		//up
+		circle(125,15,5,);
+		//middle
+		circle(125,25,5,);
+		//down
+		circle(125,35,5,);	
+	}   
+	function dides_4(x) {
+		
+		square(x,0,"black");
+
+		//up left
+		circle(162,15,5,);
+		//up right
+		circle(188,15,5,);
+		//down left
+		circle(162,35,5,);
+		//down right
+		circle(188,35,5,);	
+	}   
+	function dides_5(x) {
+		
+		square(x,0,"black");
+
+		//up left
+		circle(212,15,5,);
+		//up right
+		circle(238,15,5,);
+		//middle
+		circle(225,25,5,);
+		//down left
+		circle(212,35,5,);
+		//down right
+		circle(238,35,5,);	
+	}   
+	function dides_6(x) {
+		
+		square(x,0,"black");
+
+     	//up left
+		circle(262,15,5,);
+		//up right
+		circle(288,15,5,);
+		//middle left
+		circle(262,25,5,);
+		//middle right
+		circle(288,25,5,);
+		//down left
+		circle(262,35,5,);
+		//down right
+		circle(288,35,5,);	   	
+	}       
+    al hacer las funciones percibi que la funcion circle no era mobible, pero, tratare de hacer una nueva funcion mas generica ;)
+    ya cree dos funciones más generales, pero, dejare las de arriba para recordame en un futuro que se puede hacer de una manera mas general*/
+
+    function dides_vs_1(x,y,color,xx,yy,radio) {
+
+    	square(x,y,color);
+        //up left
+		circle(xx,yy,radio);
+    }
+
+    function dides_vs_6(x,y,color,xx,yy,radio) {
+		
+		square(x,y,color);
+
+     	//up left
+		circle(xx-12,yy-10,radio,);
+		//up right
+		circle(xx+12,yy-10,radio,);
+		//middle left
+		circle(xx-12,yy,radio,);
+		//middle right
+		circle(xx+12,yy,radio,);
+		//down left
+		circle(xx-12,yy+10,radio,);
+		//down right
+		circle(xx+12,yy+10,radio,);	   	
+	}   
+
+    function dadito() {
+ 
+    	var azar1 = Math.round(Math.random()*6);
+    	var azar2 = Math.round(Math.random()*6);
+    	var i = 0 
+
+    	if(i < azar1 & azar2){
+
+    		alert("Primer dado " + azar1 + " Segundo dado " + azar2);
+    	} 			 
+    }
+
+    for(var x = 0; x < 750; x = x + 100) {
+
+    	for(var xx = 25; xx < 750; xx = xx + 100) {
+
+    		dides_vs_1(x,0,"black",xx,25,5);		
+    	} 
+    }
+
+    for(var x = 50; x < 750; x = x + 100) {
+
+    	for(var xx = 75; xx < 750; xx = xx + 100) {
+
+    		dides_vs_6(x,0,"black",xx,25,5);		
+    	} 
+    }
+
+    document.write("<h2>la tematica del juego es, \
+    simular un simple dado, espero se diviertan \
+    Gracias</h2>"); // probando el salto de linea
+
+    var button = document.querySelector("button");
+	button.onclick = dadito
+</script>
+
+<!-- Aca termino con muchas cosas por mejorar, pero hasta aca da mi conocimiento, -->  
